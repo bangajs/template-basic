@@ -1,14 +1,12 @@
 const express = require('express');
-const path = require('path');
 const morgan = require('morgan');
 
 module.exports = (app) => {
      app.use(morgan('dev'));
      app.use(express.json());
-     app.use(express.static("/public"));
+     app.use(express.static("public"));
      app.use('/uploads', express.static("/uploads"));
      app.use(express.urlencoded({ extended: false }));
-     app.use(express.static(path.join(__dirname, 'public')));
      app.use((req, res, next) => {
           res.header("Access-Control-Allow-Origin", "*")
           res.header("Access-Control-Allow-Headers", "*")
