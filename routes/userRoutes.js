@@ -4,7 +4,6 @@ const {
   signinUser,
   getUsers,
   getUser,
-  getUserAppointments,
   deleteUser,
   editUser,
 } = require("../controllers/userController");
@@ -15,7 +14,6 @@ module.exports = function () {
   router.post("/signin", signinUser);
   router.get("/", getUsers);
   router.get("/:userId", getUser);
-  router.get("/:userId/appointments", getUserAppointments)
   router.put("/:userId", isUser, editUser);
   router.delete("/:userId", isUser, deleteUser);
 

@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const Doctor = require("../models/doctor");
 const CustomError = require("../helpers/CustomError");
 
 class UsersService {
@@ -47,23 +46,12 @@ class UsersService {
     return user;
   }
 
-  async getUserAppointments(userId) {
-    const user = await User.findOne({ _id: userId }).populate("appointments");
-
-    let appointments = user.appointments;
-
-    for (let i = 0; i < appointments.length; i++) {
-      appointments[i].doctor = await Doctor.findOne({_id: appointments[i].doctor})
-    }
-    return appointments;
-  }
-
   async editUser(userId, data) {
     const user = await User.findByIdAndUpdate({ _id: userId }, data, {
       new: true,
     });
 
-    if (!user) throw new CustomError("User dosen't exist", 404);
+    if (!user) throw new CustomError("user dosen't exist", 404);
 
     return user;
   }
