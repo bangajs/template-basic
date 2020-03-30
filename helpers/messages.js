@@ -1,9 +1,9 @@
 class Message {
-  response(message, data, success) {
+  response(message, data, success = true) {
     return {
       message: message || null,
       data: data || null,
-      success: success == null ? true : success,
+      success: success,
     };
   }
 }
