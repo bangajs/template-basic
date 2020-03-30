@@ -6,7 +6,7 @@ const {
   editUser,
 } = require("../services/UserService");
 
-const { response } = require("../helpers/messages");
+const { response } = require("../helpers/Message");
 const CustomError = require('../helpers/CustomError')
 
 class UserContoller {

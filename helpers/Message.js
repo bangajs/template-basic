@@ -1,4 +1,5 @@
 class Message {
+  
   response(message, data, success = true) {
     return {
       message: message || null,
