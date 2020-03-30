@@ -14,15 +14,11 @@ Run `npm start` or `nodemon server` to start the server, with the defaault confi
 ### Packages
 1. express
 ```
-
 2. express-async-errors
 ```
-
 3. mongoose
 ```
-
 4. morgan
 ```
-
 5. nodemon
 ```
