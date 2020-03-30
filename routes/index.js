@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const userRoutes = require("./userRoutes");
+const userRoutes = require("./userRoute");
 
 module.exports = function() {
   router.get("/test", (req, res) => {

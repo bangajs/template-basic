@@ -5,7 +5,7 @@ const {
   getUser,
   deleteUser,
   editUser,
-} = require("../services/userServices");
+} = require("../services/UserService");
 
 const { response } = require("../helpers/messages");
 const CustomError = require('../helpers/CustomError')

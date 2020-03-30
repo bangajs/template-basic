@@ -1,5 +1,5 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+
+const User = require("../models/User");
 const CustomError = require("../helpers/CustomError");
 
 async function isUser(req, res, next) {
@@ -17,5 +17,4 @@ async function isUser(req, res, next) {
   }
 }
 
-module.exports.isDoctor = isDoctor;
 module.exports.isUser = isUser;

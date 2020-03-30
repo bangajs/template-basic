@@ -6,7 +6,7 @@ const {
   getUser,
   deleteUser,
   editUser,
-} = require("../controllers/userController");
+} = require("../controllers/UserController");
 const { isUser } = require('../middlewares/auth')
 
 module.exports = function () {
