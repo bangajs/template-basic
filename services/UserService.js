@@ -2,20 +2,20 @@ const User = require("../models/user");
 const CustomError = require("../helpers/CustomError");
 
 class UserService {
-  async addUser(data) {
+  async add(data) {
     const user = new User(data);
     return user.save();
   }
 
-  async getUsers() {
+  async getMany() {
     return await User.find({});
   }
 
-  async getUser(userId) {
+  async getById(userId) {
     return await User.findOne({ _id: userId });
   }
 
-  async editUser(userId, data) {
+  async update(userId, data) {
     const user = await User.findByIdAndUpdate({ _id: userId }, data, {
       new: true,
     });
@@ -25,7 +25,7 @@ class UserService {
     return user;
   }
 
-  async deleteUser(userId) {
+  async delete(userId) {
     return await User.findOneAndRemove({ _id: userId });
   }
 }
