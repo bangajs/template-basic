@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt");
 
-const userSchema = new Schema(
+const UserSchema = new Schema(
   {
     email: {
       type: String,
@@ -10,10 +11,6 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: [true, "password is required"],
-    },
-    imgUrl: {
-      type: String,
-      default: "/uploads/defaultImg.png",
     },
     isActive: {
       type: Boolean,
@@ -25,4 +22,11 @@ const userSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Users", userSchema);
+UserSchema.pre("save", async function (next) {
+  let hash = await bcrypt.hash(this.password, 10);
+  this.password = hash;
+
+  next();
+});
+
+module.exports = mongoose.model("Users", UserSchema);
