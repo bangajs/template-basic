@@ -6,6 +6,7 @@ const UserSchema = new Schema(
   {
     email: {
       type: String,
+      trim: true,
       required: [true, "email is required"],
     },
     password: {
@@ -29,7 +30,7 @@ const UserSchema = new Schema(
 );
 
 UserSchema.pre("save", async function (next) {
-  let hash = await bcrypt.hash(this.password, 10);
+  const hash = await bcrypt.hash(this.password, 10);
   this.password = hash;
 
   next();
