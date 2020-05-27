@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const CustomError = require("../helpers/CustomError");
 
-module.exports.authorize = (roles = []) => {
+function Authorize(roles = []) {
      return async (req, res, next) => {
           const token = req.headers.authorization;
           const decoded = await jwt.verify(token, process.env.JWT_SECRET);
@@ -20,3 +20,5 @@ module.exports.authorize = (roles = []) => {
           next();
      }
 }
+
+module.exports = Authorize
