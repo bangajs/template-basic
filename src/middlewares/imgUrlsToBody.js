@@ -1,5 +1,3 @@
-const CustomError = require("./CustomError");
-
 async function imgUrlsToBody(req, res, next) {
      if (req.files) {
           req.body["imgUrls"] = req.files.map(file => {
@@ -10,4 +8,4 @@ async function imgUrlsToBody(req, res, next) {
      next();
 }
 
-module.exports.imgUrlsToBody = imgUrlsToBody;
+module.exports = imgUrlsToBody;
