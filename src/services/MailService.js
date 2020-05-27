@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer')
 const config = require('../../config')[process.env.NODE_ENV]
-// const templatingService = new (require('./TemplatingService'))();
+const templatingService = new (require('./TemplatingService'))();
 
 class MailService {
      constructor() {
@@ -8,7 +8,7 @@ class MailService {
      }
 
      getTemplate(context, template = "emails/default.jade") {
-          // return templatingService.render(template, context);
+          return templatingService.render(template, context);
      };
 
      async sendMail(from, to, subject, context, template) {
