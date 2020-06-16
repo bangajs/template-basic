@@ -4,7 +4,8 @@
   "description": "A boilerplate for creating an Express server",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node -r dotenv/config server.js",
+    "dev": "nodemon -r dotenv/config server.js"
   },
   "keywords": [],
   "author": "",

@@ -3,7 +3,3 @@ const Roles = {
      USER: "user"
 }
 
-module.exports = {
-     Roles
-}
-
