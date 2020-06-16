@@ -1,9 +1,3 @@
-/**
- * TODO
- * 
- * send verfication mail after reg
- */
-
 const User = require("../models/user");
 const CustomError = require("../helpers/CustomError");
 
