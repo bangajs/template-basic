@@ -28,6 +28,3 @@ server.listen(port, () => {
 server.on('error', (error) => {
   console.log(`::> an error occiurred in our server: \n ${error}`);
 });
-
-
-module.exports = app
