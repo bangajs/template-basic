@@ -1,5 +1,5 @@
-const User = require("../models/user");
-const CustomError = require("../helpers/CustomError");
+const User = require("./../models/user");
+const CustomError = require("./../utils/CustomError");
 
 class UserService {
   async add(data) {

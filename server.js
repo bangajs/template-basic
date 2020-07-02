@@ -1,30 +1,29 @@
-require('express-async-errors')
-const http = require('http');
-const express = require('express');
+require("express-async-errors")
+const express = require("express");
+const path = require("path")
 const app = express();
-const server = http.createServer(app);
 
-const preMiddlewares = require('./src/middlewares/preMiddlewares');
-const errorMiddlewares = require('./src/middlewares/errorMiddlewares');
-const routes = require('./src/routes');
-const databaseConfig = require('./src/config/db');
-const port = process.env.PORT;
+const preRouteMiddlewares = require("./src/middlewares/preRouteMiddlewares");
+const errorMiddlewares = require("./src/middlewares/errorMiddlewares");
+const apiRoute = require("./src/routes");
+const databaseConfig = require("./src/config/db");
+const PORT = process.env.PORT;
 
-preMiddlewares(app);
+preRouteMiddlewares(app);
 
-app.use('/api', routes())
+app.use("/api", apiRoute)
 
-app.use('/', (req, res) => {
-  res.status(200).sendFile(express.static("public/index.html"));
+app.get("/", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname + "/public/index.html"));
 })
 
 errorMiddlewares(app)
 
-server.listen(port, () => {
-  console.log(`::: server listening on port ${port}. Open via http://localhost:${port}/`);
+app.listen(PORT, () => {
+  console.log(`::: server listening on port ${PORT}. Open via http://localhost:${PORT}/`);
   databaseConfig();
 });
 
-server.on('error', (error) => {
+app.on("error", (error) => {
   console.log(`::> an error occiurred in our server: \n ${error}`);
 });

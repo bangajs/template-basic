@@ -1,20 +1,17 @@
 const router = require("express").Router();
 const UserCtrl = require("../controllers/UserController");
+const auth = require('../middlewares/auth')
 
-const { Authorize } = require('../middlewares/auth')
 
-module.exports = function () {
-  router.post("/", UserCtrl.add);
-  router.post("/auth", UserCtrl.authenticate);
-  router.post("/verify/verifyId", UserCtrl.verifyMail);
+router.post("/", UserCtrl.add);
+router.post("/auth", UserCtrl.authenticate);
 
-  router.get("/", Authorize(), UserCtrl.getMany);
-  router.get("/count", Authorize(), UserCtrl.count);
-  router.get("/:userId", Authorize(), UserCtrl.getById);
+router.get("/", auth(), UserCtrl.getMany);
+router.get("/:userId", auth(), UserCtrl.getById);
 
-  router.put("/:userId", Authorize(), UserCtrl.update);
+router.put("/:userId", auth(), UserCtrl.update);
 
-  router.delete("/:userId", Authorize(), UserCtrl.delete);
+router.delete("/:userId", auth(), UserCtrl.delete);
 
-  return router;
-};
+
+module.exports = router
