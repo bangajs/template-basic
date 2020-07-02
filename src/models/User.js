@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
+const { Roles } = require("./../config/constants")
+
 
 const UserSchema = new Schema(
   {
@@ -16,8 +18,8 @@ const UserSchema = new Schema(
     role: {
       type: String,
       trim: true,
-      enum: [constants.USER_ROLE],
-      default: constants.USER_ROLE
+      enum: [Roles.USER],
+      default: Roles.USER
     },
     isActive: {
       type: Boolean,
@@ -36,4 +38,13 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
-module.exports = mongoose.model("Users", UserSchema);
+
+let user
+
+try {
+  user = mongoose.model('users')
+} catch (error) {
+  user = mongoose.model('users', UserSchema)
+}
+
+module.exports = user

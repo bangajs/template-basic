@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 const User = require("./../models/User");
-const CustomError = require("./../helpers/CustomError");
+const CustomError = require("./../utils/CustomError");
 
-function Authorize() {
+function auth() {
      return async (req, res, next) => {
           if (!req.headers.authorization) throw new CustomError("unauthorized user", 401);
 
@@ -18,4 +18,4 @@ function Authorize() {
      }
 }
 
-module.exports = Authorize
+module.exports = auth

@@ -1,5 +1,5 @@
-const UserService = require("../services/UserService");
-const { response } = require("../helpers/Message");
+const UserService = require("./../services/UserService");
+const response = require("./../utils/response");
 
 class UserContoller {
   async add(req, res) {

@@ -1,10 +1,13 @@
 const router = require("express").Router();
-const userRoutes = require("./userRoute");
+const userRoute = require("./userRoute");
+const authRoute = require("./authRoute");
 
-module.exports = function() {
-  router.get("/test", (req, res) => res.send("Yeah it works!")); 
 
-  router.use("/users", userRoutes());
+router.get("/test", (req, res) => res.send("Yeah it works!"));
 
-  return router;
-};
+router.use("/users", userRoute);
+router.use("/auth", authRoute)
+
+
+
+module.exports = router
