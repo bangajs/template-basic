@@ -34,3 +34,11 @@ module.exports = {
      facebook,
      google
 };
+
+
+
+// FB_CLIENT_ID=159030901322260
+// FB_CLIENT_SECRET=0d641e47f5d55af221ec80346f3f2d43
+
+// GOOGLE_CLIENT_ID=591307876438-4nmmm817vks785u467lo22kss40kqno2.apps.googleusercontent.com
+// GOOGLE_CLIENT_SECRET=BagENe4LxG_PZ_qz2oFX7Aok
