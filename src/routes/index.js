@@ -3,10 +3,9 @@ const userRoute = require("./userRoute");
 const authRoute = require("./authRoute");
 
 
-router.get("/test", (req, res) => res.send("Yeah it works!"));
+router.get("/ping", (req, res) => res.send("Yeah it works!"));
 
 router.use("/users", userRoute);
-router.use("/auth", authRoute)
 
 
 
