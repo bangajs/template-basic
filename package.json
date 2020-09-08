@@ -1,14 +1,14 @@
 {
-  "name": "africvac",
-  "version": "1.0.0",
-  "description": "AFRICVAC",
+  "name": "express-lanch-box",
+  "version": "0.0.1",
+  "description": "Boilerplate for creating a production-ready Express server",
   "main": "server.js",
   "scripts": {
     "start": "node -r dotenv/config server.js",
     "dev": "nodemon -r dotenv/config server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Onyegbu Ifedili",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
@@ -22,8 +22,6 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "passport": "^0.4.1",
-    "passport-facebook": "^3.0.0",
-    "passport-google-oauth": "^2.0.0",
     "shortid": "^2.2.15"
   },
   "devDependencies": {
