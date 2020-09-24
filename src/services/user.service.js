@@ -1,8 +1,8 @@
-const User = require("./../models/user");
-const CustomError = require("./../utils/CustomError");
+const User = require("./../models/user.model");
+const CustomError = require("./../utils/custom-error");
 
 class UserService {
-  async add(data) {
+  async create(data) {
     const userExist = await User.findOne({ email: data.email })
     if (userExist) throw new CustomError("Email already exists");
 
@@ -21,7 +21,7 @@ class UserService {
     };
   }
 
-  async authenticate(data) {
+  async login(data) {
     if (!data.email) throw new CustomError("Email is required");
     if (!data.password) throw new CustomError("Password is required");
 

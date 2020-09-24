@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const UserCtrl = require("../controllers/UserController");
-const auth = require('../middlewares/auth')
+const UserCtrl = require("../controllers/user.controller");
+const auth = require('../middlewares/auth.middleware');
 
 
-router.post("/", UserCtrl.add);
-router.post("/auth", UserCtrl.authenticate);
+router.post("/", UserCtrl.create);
+router.post("/login", UserCtrl.login);
 
 router.get("/", auth(), UserCtrl.getMany);
 router.get("/:userId", auth(), UserCtrl.getById);

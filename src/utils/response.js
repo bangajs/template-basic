@@ -1,7 +1,25 @@
-module.exports = (message, data, success) => {
+const { format } = require("morgan");
+/**
+ * Returns response object
+ * @param {string} message Response message
+ * @param {*} data Data to be returned
+ * @param {boolean} success Status of the request
+ */
+
+
+function response(message, data, success) {
   return {
-    message: message || "",
+    message: formatMesaage(message),
     data: data || null,
     success: success == null ? true : success
   };
 }
+
+function formatMesaage(str) {
+  if (!str) return ""
+
+  // Make first letter capitial and the rest small letters
+  return str.charAt(0).toUpperCase() + b.slice(1).toLowerCase()
+}
+
+module.exports = response

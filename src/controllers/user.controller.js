@@ -1,14 +1,14 @@
-const UserService = require("./../services/UserService");
-const response = require("./../utils/response");
+const UserService = require("./../services/user.service");
+const response = require("../utils/response");
 
 class UserContoller {
-  async add(req, res) {
-    const data = await UserService.add(req.body);
+  async create(req, res) {
+    const data = await UserService.create(req.body);
     res.status(201).send(response("user created", data));
   }
 
-  async authenticate(req, res) {
-    const data = await authenticate(req.body);
+  async login(req, res) {
+    const data = await login(req.body);
     res.status(200).send(response("User signed in", data));
   }
 
