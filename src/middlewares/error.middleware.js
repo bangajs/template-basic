@@ -1,7 +1,7 @@
-const CustomError = require("./../utils/CustomError");
+const CustomError = require("./../utils/custom-error");
 const response = require("./../utils/response")
-const errors = ["CastError", "JsonWebTokenError", "ValidationError", "SyntaxError"]
 
+const errorNames = ["CastError", "JsonWebTokenError", "ValidationError", "SyntaxError"]
 
 module.exports = (app) => {
 
@@ -13,7 +13,7 @@ module.exports = (app) => {
           console.log(error)
           if (error instanceof CustomError) {
                res.status(error.status).send(response(error.message, null, false));
-          } else if (errors.includes(error.name)) {
+          } else if (errorNames.includes(error.name)) {
                res.status(400).send(response(error.message, null, false));
           } else {
                res.status(500).send(response(error.message, null, false));
