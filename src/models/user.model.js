@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
-const { roles } = require("../configs/default.config")
 
 
 const userSchema = new Schema(
@@ -9,17 +8,21 @@ const userSchema = new Schema(
     email: {
       type: String,
       trim: true,
-      required: [true, "email is required"],
+      required: [true, "Email is required"],
     },
     password: {
       type: String,
-      required: [true, "password is required"],
+      required: [true, "Password is required"],
+    },
+    image: {
+      type: String,
+      required: [true, "Image is required"],
     },
     role: {
       type: String,
       trim: true,
-      enum: [roles.USER],
-      default: roles.USER
+      enum: ["user", "admin"],
+      default: "user"
     },
     isActive: {
       type: Boolean,
@@ -32,7 +35,7 @@ const userSchema = new Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  
+
   if (!this.isModified('password')) return next()
 
   const hash = await bcrypt.hash(this.password, 10);
