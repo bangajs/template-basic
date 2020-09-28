@@ -25,6 +25,7 @@
     "shortid": "^2.2.15"
   },
   "devDependencies": {
+    "jest": "^26.4.2",
     "nodemon": "^1.19.4"
   }
 }
