@@ -2,14 +2,13 @@ require("express-async-errors");
 const app = require("express")();
 const PORT = process.env.PORT;
 
-
-// pre route middlewares
+// Pre-route middlewares
 require("./src/middlewares/pre-route.middleware")(app);
 
 // API routes
 app.use("/api", require("./src/routes"));
 
-// Test toute /ping
+// Test route
 app.get("/ping", (req, res) => res.status(200).send("Hello world!"));
 
 // Error middlewares
@@ -17,9 +16,9 @@ require("./src/middlewares/error.middleware")(app);
 
 
 app.listen(PORT, () => {
-  console.log(`:::> Server listening on port ${PORT}. Open via http://localhost:${PORT}`);
   //Initialize Database
   require("./src/configs/db.config")();
+  console.log(`:::> Server listening on port ${PORT}. Open via http://localhost:${PORT}`);
 });
 
 app.on("error", (error) => {
