@@ -11,7 +11,7 @@ const options = {
 function initializeDB() {
   mongoose.connect(uri, options)
     .then(() => console.log(':::> Connected to database'))
-    .catch(error => console.error("<::: Couldn't connect to database ", error));
+    .catch(error => console.error("<::: Couldn't connect to database \n", error));
 };
 
 module.exports = initializeDB

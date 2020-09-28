@@ -40,12 +40,12 @@ class UserService {
     };
   }
 
-  async getMany() {
+  async getAll() {
     const user = await User.find({}, { password: 0 });
     return user
   }
 
-  async getById(userId) {
+  async getOne(userId) {
     const user = await User.findOne({ _id: userId }, { password: 0 });
     return user;
   }
@@ -62,7 +62,7 @@ class UserService {
     return user;
   }
   
-  async deleteOne(userId) {
+  async delete(userId) {
     const user = await User.findOne({ _id: userId });
     user.remove()
     return user

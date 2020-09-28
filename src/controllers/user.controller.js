@@ -1,35 +1,35 @@
-const UserService = require("./../services/user.service");
-const response = require("../utils/response");
+const UserServ = require("./../services/user.service");
+const $res = require("./../utils/response");
 
 class UserContoller {
   async create(req, res) {
-    const data = await UserService.create(req.body);
-    res.status(201).send(response("user created", data));
+    const result = await UserServ.create(req.body);
+    res.status(201).send($res("User created", result));
   }
 
   async login(req, res) {
-    const data = await login(req.body);
-    res.status(200).send(response("User signed in", data));
+    const result = await UserServ.login(req.body);
+    res.status(200).send($res("User login successful", result));
   }
 
-  async getMany(req, res) {
-    const data = await UserService.getById();
-    res.status(200).send(response("Users", data));
+  async getAll(req, res) {
+    const result = await UserServ.get();
+    res.status(200).send($res("All users", result));
   }
 
-  async getById(req, res) {
-    const data = await UserService.getById(req.params.userId);
-    res.status(200).send(response("User", data));
+  async getOne(req, res) {
+    const result = await UserServ.getOne(req.params.userId);
+    res.status(200).send($res("User data", result));
   }
 
   async update(req, res) {
-    const data = await UserService.update(req.params.userId, req.body);
-    res.status(200).send(response("User updated", data));
+    const result = await UserServ.update(req.params.userId, req.body);
+    res.status(200).send($res("User updated", result));
   }
 
   async delete(req, res) {
-    const data = await UserService.deleteOne(req.params.userId);
-    res.status(200).send(response("User deleted", data));
+    const result = await UserServ.delete(req.params.userId);
+    res.status(200).send($res("User deleted", result));
   }
 }
 

@@ -1,4 +1,3 @@
-const { format } = require("morgan");
 /**
  * Returns response object
  * @param {string} message Response message
@@ -18,8 +17,8 @@ function response(message, data, success) {
 function formatMesaage(str) {
   if (!str) return ""
 
-  // Make first letter capitial and the rest small letters
-  return str.charAt(0).toUpperCase() + b.slice(1).toLowerCase()
+  // Make first letter capitial
+  return str.charAt(0).toUpperCase() + b.slice(1)
 }
 
 module.exports = response
