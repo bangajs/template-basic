@@ -3,15 +3,12 @@ const CustomError = require("./../utils/custom-error");
 
 class UserService {
   async create(data) {
-    const userExist = await User.findOne({ email: data.email })
-    if (userExist) throw new CustomError("Email already exists");
+    const user = await User.findOne({ email: data.email })
+    if (user) throw new CustomError("Email already exists");
 
     const user = new User(data);
     const token = await jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET);
     await user.save();
-
-    //send mail
-    MailService.sendMail()
 
     return data = {
       uid: user._id,
@@ -25,8 +22,11 @@ class UserService {
     if (!data.email) throw new CustomError("Email is required");
     if (!data.password) throw new CustomError("Password is required");
 
+    // Check if user exist
     const user = await User.findOne({ email: data.email });
     if (!user) throw new CustomError("Incorrect email or password");
+
+    //Check if user password is correct
     const isCorrect = await bcrypt.compare(data.password, user.password)
     if (!isCorrect) throw new CustomError("Incorrect email or password");
 
@@ -41,27 +41,25 @@ class UserService {
   }
 
   async getAll() {
-    const user = await User.find({}, { password: 0 });
-    return user
+    return await User.find({}, { password: 0, _v: 0 });
   }
 
   async getOne(userId) {
-    const user = await User.findOne({ _id: userId }, { password: 0 });
-    return user;
+    return await User.findOne({ _id: userId }, { password: 0, _v: 0 });
   }
 
   async update(userId, data) {
     const user = await User.findByIdAndUpdate(
       { _id: userId },
-      data,
-      { new: true, }
+      { $set: data },
+      { new: true }
     );
 
     if (!user) throw new CustomError("User dosen't exist", 404);
 
     return user;
   }
-  
+
   async delete(userId) {
     const user = await User.findOne({ _id: userId });
     user.remove()

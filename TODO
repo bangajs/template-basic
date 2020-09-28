@@ -1,0 +1,8 @@
+- Send verification mail
+- Pick and save required data to DB
+- Reset password
+- Write test
+- add Joi validation
+
+- Replace URI project name with "Project name"
+- Add project name to package.json
