@@ -65,6 +65,14 @@ class UserService {
     user.remove()
     return user
   }
+
+  async sendVerificationMail(){
+
+  }
+
+  async resetPassword(){
+    
+  }
 }
 
 module.exports = new UserService();
