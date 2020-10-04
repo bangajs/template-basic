@@ -4,9 +4,6 @@ const auth = require('./../middlewares/auth.middleware');
 const {p} = require("./../configs/default.config")
 
 
-router.post("/", UserCtrl.create);
-router.post("/login", UserCtrl.login);
-
 router.get("/", auth(), UserCtrl.getAll);
 router.get("/:userId", auth(), UserCtrl.getOne);
 
