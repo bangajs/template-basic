@@ -6,6 +6,4 @@ node_modules
 uploads/*
 
 # exception to the rule
-!uploads/.gitkeep 
-
-package-lock.json
+!uploads/.gitkeep
