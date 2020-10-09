@@ -18,7 +18,7 @@ function formatMesaage(str) {
   if (!str) return ""
 
   // Make first letter capitial
-  return str.charAt(0).toUpperCase() + b.slice(1)
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 module.exports = response

@@ -1,6 +1,6 @@
 {
   "name": "express-lanch-box",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Boilerplate for creating a production-ready Express server",
   "main": "server.js",
   "scripts": {
