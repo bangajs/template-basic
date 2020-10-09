@@ -1,15 +1,21 @@
 const router = require("express").Router();
 const UserCtrl = require("./../controllers/user.controller");
 const auth = require('./../middlewares/auth.middleware');
-const {p} = require("./../configs/default.config")
+const upload = require("./../middlewares/multer.middleware")
+const { role } = require("./../configs/default.config")
 
 
-router.get("/", auth(), UserCtrl.getAll);
-router.get("/:userId", auth(), UserCtrl.getOne);
+router.post("/", upload("image"), UserCtrl.create);
+router.post("/login", UserCtrl.login);
+router.post("/verify-email", UserCtrl.login);
+router.post("/resend-verification-email", UserCtrl.login);
 
-router.put("/:userId", auth(), UserCtrl.update);
+router.get("/", auth(role.USER), UserCtrl.getAll);
+router.get("/:userId", auth(role.USER), UserCtrl.getOne);
 
-router.delete("/:userId", auth(), UserCtrl.delete);
+router.put("/:userId", auth(role.USER), UserCtrl.update);
+
+router.delete("/:userId", auth(role.USER), UserCtrl.delete);
 
 
 module.exports = router
