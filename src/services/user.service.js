@@ -48,7 +48,10 @@ class UserService {
   }
 
   async getOne(userId) {
-    return await User.findOne({ _id: userId }, { password: 0, __v: 0 });
+    const user = await User.findOne({ _id: userId }, { password: 0, __v: 0 });
+    if (!user) throw new CustomError("User does not exists");
+
+    return user
   }
 
   async update(userId, data) {
@@ -69,12 +72,12 @@ class UserService {
     return user
   }
 
-  async sendVerificationMail(){
+  async sendVerificationMail() {
 
   }
 
-  async resetPassword(){
-     
+  async resetPassword() {
+
   }
 }
 

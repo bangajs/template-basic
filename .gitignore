@@ -7,3 +7,5 @@ uploads/*
 
 # exception to the rule
 !uploads/.gitkeep 
+
+package-lock.json
