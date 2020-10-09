@@ -1,13 +1,16 @@
+const JWT = require("jsonwebtoken")
 const User = require("./../models/user.model");
 const CustomError = require("./../utils/custom-error");
 
 class UserService {
   async create(data) {
-    const user = await User.findOne({ email: data.email })
+    let user = await User.findOne({ email: data.email })
     if (user) throw new CustomError("Email already exists");
 
-    const user = new User(data);
-    const token = await jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET);
+    console.log(data)
+
+    user = new User(data);
+    const token = JWT.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET);
     await user.save();
 
     return data = {
@@ -41,11 +44,11 @@ class UserService {
   }
 
   async getAll() {
-    return await User.find({}, { password: 0, _v: 0 });
+    return await User.find({}, { password: 0, __v: 0 });
   }
 
   async getOne(userId) {
-    return await User.findOne({ _id: userId }, { password: 0, _v: 0 });
+    return await User.findOne({ _id: userId }, { password: 0, __v: 0 });
   }
 
   async update(userId, data) {

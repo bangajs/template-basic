@@ -19,7 +19,7 @@ function auth(...roles) {
 
           let user = await User.findOne({ _id: decoded.id });
           if (!user || !user.isActive) throw new CustomError("Unauthorized access: User has been deactivated", 401);
-          if (!roles.includes(result.role)) throw new CustomError("Unauthorized access", 401)
+          if (!roles.includes(user.role)) throw new CustomError("Unauthorized access", 401)
 
           req.$user = user;
 
