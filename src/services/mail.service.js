@@ -4,7 +4,7 @@ const { mailer, APP_NAME } = require("./../config");
 
 class MailService {
      constructor() {
-          const options = {
+          this.transporter = nodemailer.createTransport({
                host: mailer.HOST,
                port: mailer.PORT,
                secure: mailer.SECURE,
@@ -12,14 +12,12 @@ class MailService {
                     user: mailer.USER,
                     pass: mailer.PASSWORD
                }
-          }
-
-          this.transporter = nodemailer.createTransport(options);
+          });
      }
 
      async send(from, to, subject, content) {
           from = from || `${APP_NAME} <no-reply${mailer.DOMAIN}>`
-          content = content || "lorem20 and some othe things"
+          content = content || "Hello world"
 
           if (!to) throw new CustomError("Recipient is required");
           if (!subject) throw new CustomError("Subject is required");
@@ -31,7 +29,7 @@ class MailService {
                text: content
           });
 
-          console.log(sent)
+          return
      }
 }
 
