@@ -1,10 +1,10 @@
 - Send verification mail
 - Pick and save required data to DB
-- Reset password
+
 - Write test
 - add Joi validation
 
 - Replace URI project name with "Project name"
 - Add project name to package.json
 - npm run debug
-- auto generate salt and jwt secret with crypto
+- auto generate jwt secret with crypto
