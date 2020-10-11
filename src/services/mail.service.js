@@ -1,35 +1,43 @@
-const nodemailer = require('nodemailer');
-const CustomError = require('./../utils/custom-error');
-const { MAILER_NAME, MAILER_HOST, MAILER_USER, MAILER_PASSWORD } = process.env
+const nodemailer = require("nodemailer");
+const CustomError = require("./../utils/custom-error");
+const { mailer, APP_NAME } = require("./../config");
 
 class MailService {
      constructor() {
-          this.transporter = nodemailer.createTransport({
-               name: MAILER_NAME,
-               host: MAILER_HOST,
-               port: 465,
-               secure: true,
+          const options = {
+               host: mailer.HOST,
+               port: mailer.PORT,
+               secure: mailer.SECURE,
                auth: {
-                    user: MAILER_USER,
-                    pass: MAILER_PASSWORD
-               },
-          });
+                    user: mailer.USER,
+                    pass: mailer.PASSWORD
+               }
+          }
+
+          this.transporter = nodemailer.createTransport(options);
      }
 
-     async send(from, to, subject, context, template) {
-          from = from || '"no-reply XXX" <no-reply@xxx.xxx>'
-          context = context || {}
+     async send(from, to, subject, content) {
+          from = from || `${APP_NAME} <no-reply${mailer.DOMAIN}>`
+          content = content || "lorem20 and some othe things"
 
           if (!to) throw new CustomError("Recipient is required");
           if (!subject) throw new CustomError("Subject is required");
 
-          return await this.transporter.sendMail({
+          const sent = await this.transporter.sendMail({
                from,
                to: Array.isArray(to) ? to.join() : to,
                subject,
-               html: template
+               text: content
           });
+
+          console.log(sent)
      }
 }
 
 module.exports = MailService
+
+
+let ms = new MailService()
+
+ms.send(null, "onyegbuifedili@gmail.com", "Hello Ifedili")

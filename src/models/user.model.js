@@ -32,10 +32,6 @@ const userSchema = new Schema(
     isVerified: {
       type: Boolean,
       default: false,
-    },
-    _isDeleted: {
-      type: Boolean,
-      default: false,
     }
   },
   {

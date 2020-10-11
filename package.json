@@ -1,6 +1,6 @@
 {
   "name": "express-lanch-box",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "Boilerplate for creating a production-ready Express server",
   "main": "server.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "mongoose": "^5.9.18",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "nodemailer": "^6.4.13",
     "passport": "^0.4.1",
     "shortid": "^2.2.15"
   },
