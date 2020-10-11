@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
+const { BCRYPT_SALT } = require("./../config")
+const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema(
@@ -30,7 +31,11 @@ const userSchema = new Schema(
     },
     isVerified: {
       type: Boolean,
-      default: true,
+      default: false,
+    },
+    _isDeleted: {
+      type: Boolean,
+      default: false,
     }
   },
   {
@@ -41,7 +46,7 @@ const userSchema = new Schema(
 userSchema.pre("save", async function (next) {
   if (!this.isModified('password')) return next()
 
-  const hash = await bcrypt.hash(this.password, 10);
+  const hash = await bcrypt.hash(this.password, BCRYPT_SALT);
   this.password = hash;
 
   next();
