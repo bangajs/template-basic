@@ -1,4 +1,4 @@
-const upload = require("./../configs/multer.config")
+const upload = require("./../utils/multer")
 
 async function addPathToBody(req, res, next) {
      if (req.files)

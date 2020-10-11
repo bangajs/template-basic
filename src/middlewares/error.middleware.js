@@ -2,10 +2,9 @@ const CustomError = require("./../utils/custom-error");
 const response = require("./../utils/response")
 
 //Possible error names
-const errorNames = ["CastError", "JsonWebTokenError", "ValidationError", "SyntaxError"]
+const errorNames = ["CastError", "JsonWebTokenError", "ValidationError", "SyntaxError", "MongooseError"]
 
 module.exports = (app) => {
-
      app.use("*", (req, res) => {
           res.status(400).send(response("Invalid request", null, false));
      });
