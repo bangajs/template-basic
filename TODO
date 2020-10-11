@@ -6,3 +6,5 @@
 
 - Replace URI project name with "Project name"
 - Add project name to package.json
+- npm run debug
+- auto generate salt and jwt secret with crypto
