@@ -2,6 +2,11 @@ const UserServ = require("./../services/user.service");
 const response = require("./../utils/response");
 
 class UserContoller {
+  async create(req, res) {
+    const result = await UserServ.create(req.body);
+    res.status(200).send(response("User created", result));
+  }
+
   async getAll(req, res) {
     const result = await UserServ.getAll();
     res.status(200).send(response("All users", result));

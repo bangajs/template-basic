@@ -14,15 +14,14 @@ const userSchema = new Schema(
     email: {
       type: String,
       trim: true,
+      unique: true,
       required: [true, "Email is required"],
     },
     password: {
       type: String,
-      required: [true, "Password is required"],
     },
     image: {
       type: String,
-      required: [true, "Image is required"],
     },
     role: {
       type: String,
