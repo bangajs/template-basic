@@ -7,4 +7,4 @@
 - Replace URI project name with "Project name"
 - Add project name to package.json
 - npm run debug
-- auto generate jwt secret with crypto
+- auto generate  jwtsecret with crypto
