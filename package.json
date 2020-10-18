@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node -r dotenv/config server.js",
-    "dev": "nodemon -r dotenv/config server.js"
+    "dev": "nodemon -r dotenv/config server.js dotenv_config_path=./.env.dev"
   },
   "keywords": [],
   "author": "Onyegbu Ifedili",

@@ -10,7 +10,7 @@ require("./src/middlewares/pre-route.middleware")(app);
 // API routes
 app.use("/api", require("./src/routes"));
 
-// Test route
+// Ping me 🙂
 app.get("/ping", (req, res) => res.status(200).send("Hello world!"));
 
 // Error middlewares
