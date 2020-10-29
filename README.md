@@ -13,9 +13,9 @@
 
 1. Install all dependencies - <code>npm install</code>
 
-2. Create a new file <code>.env</code> and copy the contents of <code>env.test</code> into it.
+2. Create a new file <code>.env</code> and copy the contents of <code>env.dev</code> into it.
 
 3. Start up the server - <code>npm start</code> | <code>npm run dev</code>
 
-4. Server should be running on http://localhost:1999/ by default
+4. Server should be running on http://localhost:2020/ by default
 
