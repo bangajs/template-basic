@@ -2,6 +2,7 @@ const JWT = require("jsonwebtoken");
 const User = require("./../models/user.model");
 const CustomError = require("./../utils/custom-error");
 const { role, JWT_SECRET } = require("./../config")
+
 /**
  * If no role is passed the default role is user
  * 

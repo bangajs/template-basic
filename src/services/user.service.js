@@ -2,7 +2,7 @@ const User = require("./../models/user.model");
 const CustomError = require("./../utils/custom-error");
 class UserService {
   async create(data) {
-    return await new User(data).save();;
+    return await new User(data).save();
   }
 
   async getAll() {
@@ -10,7 +10,10 @@ class UserService {
   }
 
   async getOne(userId) {
-    const user = await User.findOne({ _id: userId }, { password: 0, __v: 0 });
+    const user = await User.findOne(
+      { _id: userId },
+      { password: 0, __v: 0 }
+    );
     if (!user) throw new CustomError("User does not exists");
 
     return user
