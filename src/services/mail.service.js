@@ -34,8 +34,3 @@ class MailService {
 }
 
 module.exports = MailService
-
-
-let ms = new MailService()
-
-ms.send(null, "onyegbuifedili@gmail.com", "Hello Ifedili")
