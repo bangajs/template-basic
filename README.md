@@ -1,21 +1,24 @@
 # Express Launch Box
 
-### Installation
+This project was generated with [BàngáJS](https://bangajs.netlify.app/) v1.0.0.  
 
-1. Click on code button and copy the link to the repo
+## Installation
 
-2. Clone the repository to your local environment - <code>git clone https://github.com/saucecodee/express-launch-box.git</code>
+1. Install all dependencies - `npm install`
 
-3. Navigate into the cloned folder - <code>cd express-launch-box</code>
+2. Create a new file `.env` and copy the contents of `env.dev` into it.
+
+3. Navigate into the cloned folder - `cd express-launch-box`
 
 
-### Running the server locally
+## Running the server locally
 
-1. Install all dependencies - <code>npm install</code>
+1. Start up the server - Run `npm start` | `npm run dev`
 
-2. Create a new file <code>.env</code> and copy the contents of <code>env.dev</code> into it.
+2. Server should be running on http://localhost:2020/ by default
 
-3. Start up the server - <code>npm start</code> | <code>npm run dev</code>
+## Code scaffolding
 
-4. Server should be running on http://localhost:2020/ by default
+Run `banga generate <type> <name>` to generate a new file types. Visit [here](https://bangajs.netlify.app/#banga-generate) for more info.
 
+## Routes
