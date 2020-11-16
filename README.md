@@ -6,9 +6,11 @@ This project was generated with [BàngáJS](https://bangajs.netlify.app/) v1.0.0
 
 1. Install all dependencies - `npm install`
 
-2. Create a new file `.env` and copy the contents of `env.dev` into it.
+2. Navigate into the cloned folder - `cd express-launch-box`
 
-3. Navigate into the cloned folder - `cd express-launch-box`
+3. Create a new file `.env` if it doesn't exist and copy the contents of `env.dev` into it to be able to run your server on production environment. 
+
+4. Then you need to provide values for the configuration env files at the `src/config/env directory`.
 
 
 ## Running the server locally
