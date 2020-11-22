@@ -13,7 +13,7 @@ This project was generated with [BàngáJS](https://bangajs.netlify.app/) v1.0.0
 
 ## Running the server locally
 
-1. Start up the server - Run `npm start` | `npm run dev`
+1. Start up the server - Run `npm start` for production or `npm run dev` for development
 
 2. Server should be running on http://localhost:2020/ by default
 
