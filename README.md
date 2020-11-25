@@ -19,7 +19,7 @@ This project was generated with [BàngáJS](https://bangajs.netlify.app/) v1.0.0
 
 ## Code scaffolding
 
-Run `banga generate <type> <name>` to generate a new file types. Visit [here](https://bangajs.netlify.app/#banga-generate) for more info.
+Run `banga generate <type> <name>` to generate a new file types. Visit the [BàngáJS documentation](https://bangajs.netlify.app/#banga-generate) for more info.
 
 ## Routes
 
