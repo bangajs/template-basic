@@ -1,6 +1,7 @@
 {
   "APP_NAME": "ExpressLaunchBox",
   "JWT_SECRET": "XXXX XXXX XXXX",
+  "BCRYPT_SALT": 10,
   "MONGODB_URI": "mongodb://localhost/project-name",
   "role": {
     "ADMIN": ["admin"],
@@ -11,10 +12,11 @@
     "BASE_URL": "localhost:2020"
   },
   "mailer": {
-    "HOST": "",
-    "USER": "",
-    "PASSWORD": "",
-    "PORT": "",
-    "DOMAIN": ""
+    "HOST": "smtp.gmail.com",
+    "USER": "esutvoice@gmail.com",
+    "PASSWORD": "esutvoice101",
+    "PORT": 465,
+    "SECURE": true,
+    "DOMAIN": "expresslaunchbox.com"
   }
 }
