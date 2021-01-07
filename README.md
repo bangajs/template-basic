@@ -1,21 +1,38 @@
 # Express Launch Box
 
-### Installation
+This project was generated with [BàngáJS](https://bangajs.netlify.app/) v1.0.0.  
 
-1. Click on code button and copy the link to the repo
+## Installation
 
-2. Clone the repository to your local environment - <code>git clone https://github.com/saucecodee/express-launch-box.git</code>
+1. Install dependencies - `npm install`
 
-3. Navigate into the cloned folder - <code>cd express-launch-box</code>
+2. Create a new file `.env` if it doesn't exist and copy the contents of `env.dev` into it to be able to run your server on production environment. 
+
+3. Then you need to provide values for the configuration env files at the `src/config/env directory`.
 
 
-### Running the server locally
+## Running the server locally
 
-1. Install all dependencies - <code>npm install</code>
+1. Start up the server - Run `npm start` for production or `npm run dev` for development
 
-2. Create a new file <code>.env</code> and copy the contents of <code>env.dev</code> into it.
+2. Server should be running on http://localhost:2020/ by default
 
-3. Start up the server - <code>npm start</code> | <code>npm run dev</code>
+## Code scaffolding
 
-4. Server should be running on http://localhost:2020/ by default
+Run `banga generate <type> <name>` to generate a new file types. Visit the [BàngáJS documentation](https://bangajs.netlify.app/#banga-generate) for more info.
 
+## Routes
+
+| Routes                                                           | Description                              | Auth roles                            |
+| -----------------------------------------------------------------|----------------------------------------- | ------------------------------------- |
+| [POST] &nbsp; /api/auth/sign-up                                  | Create a new account                     | none                                     
+| [POST] &nbsp; /api/auth/sign-in                                  | User sign in                             | none                                      
+| [POST] &nbsp; /api/auth/request-email-verification               | Resend verfication email                 | none                                     
+| [POST] &nbsp; /api/auth/verify-email                             | Email verification                       | none                                     
+| [POST] &nbsp; /api/auth/request-password-reset                   | Sends a request password email           | none                                      
+| [POST] &nbsp; /api/auth/reset-password                           | Reset password form handler              | none                                      
+| [POST] &nbsp; /api/users                                         | Create a user                            | User                                  
+| [GET] &nbsp; /api/users                                          | Get all users                            | Admin                                 
+| [GET] &nbsp; /api/users/:userId                                  | Get a user                               | User                                  
+| [UPDATE] &nbsp; /api/users/::userId                              | Update a user                            | User                                  
+| [DELETE] &nbsp; /api/users/:userId                               | Delete a user                            | Admin                                 
