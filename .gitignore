@@ -1,7 +1,7 @@
 node_modules
 
 .env
-src/config/config.json
+src/config/env/prod.env.json
 
 # exclude everything
 uploads/*
