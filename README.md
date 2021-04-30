@@ -1,6 +1,6 @@
 # Express Launch Box
 
-This project was generated with [BàngáJS](https://bangajs.netlify.app/) v1.0.0.  
+This project was generated with [BàngáJS](https://bangajs.com).  
 
 ## Installation
 
