@@ -1,4 +1,4 @@
-# Express Launch Box
+# BàngáJS Basic Template.
 
 This project was generated with [BàngáJS](https://bangajs.com).  
 
